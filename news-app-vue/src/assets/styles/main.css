@@ -1,0 +1,56 @@
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: block; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 10; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+   
+  }
+  #overlay img{
+    top:50%;
+    position:relative;
+    height:20%;
+  }
+
+  .cursor-pointer{
+    cursor: pointer;
+  }
+  .float-right{
+    float:right;
+  }
+  .container-min-height{
+    min-height:60vh;
+    
+  }
+  .font-size-10{
+    font-size: 10px;
+  }
+  .font-size-14{
+    font-size:14px;
+  }
+  .font-italic{
+    font-style: italic;
+  }
+
+ /* paddings*/
+ .padding-left-8{
+  padding-left: 8%;
+ }
+
+ /*font colors*/
+ .font-red{
+  color:red;
+ }
+ .font-green{
+  color:green;
+ }
+
+
+
+ 
