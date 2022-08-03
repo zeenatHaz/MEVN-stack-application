@@ -30,13 +30,24 @@ export default{
         showComments:false,
         showCommentError:false,
         categorySelected:{},
-       
+        
       }
     },
+    computed:{
+      
+    categorySelected:function(){
+      alert('fdf')
+      if(this.clearSelectedOptions){
+        return {}
+      }
+    }
+    },
+
     props:{
         feedbackCategories:{},
         showFeedbackBox:false,
-         errorMessage:{}
+         errorMessage:{},
+         clearSelectedOptions:false
     },
     methods:{
         hideCommentError(){

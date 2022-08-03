@@ -34,14 +34,12 @@
     </nav>
 
     <router-view />
-
-
-     
         <b-collapse id="collapse-1" class="mt-2" >  <Feedback
           :showFeedbackBox="showFeedbackBox"
           :feedbackCategories="feedbackCategories"
           :errorMessage="errorMessage"
           @saveUserFeedback="saveUserFeedback"
+          :clearSelectedOptions="clearSelectedOptions"
         ></Feedback></b-collapse>
       
    
@@ -74,7 +72,8 @@ export default {
       description: "",
       title: "",      
       showFeedbackBox: true,
-      errorMessage:""
+      errorMessage:"",
+      clearSelectedOptions:false
      
     };
   },
@@ -86,7 +85,7 @@ export default {
         description: param.desc ? param.desc : " ",
         comments: param.comments ? param.comments : "",
       }).catch(error=>{
-        this.errorMessage="Error getting feedback categories."
+        this.errorMessage="Error saving your feedback.Please try later."
       });
 
       if (response) {    
@@ -97,9 +96,13 @@ export default {
        });
        // Close toast after 5000ms
         setTimeout(this.$toast.clear, 5000);
-
+        this.clearSelection();
+        param=null;
 
       }
+    },
+    clearSelection(){
+       this.clearSelectedOptions-true;
     },
     showSuccessAlert() {
       this.dismissCountDown = this.dismissSecs;
@@ -121,7 +124,7 @@ export default {
        this.errorMessage="Error getting feedback response due to " + error
     });
     this.feedbackCategories = feedbackCatResponse?(feedbackCatResponse.data?feedbackCatResponse.data:null):null;
-    const feedbackResponse = await (await axios.get("api/feedback/")).catch(error=>{
+    const feedbackResponse = await await axios.get("api/feedback/").catch(error=>{
        this.errorMessage="Error getting feedback response due to " + error
     });;
   },
